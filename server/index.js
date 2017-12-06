@@ -6,6 +6,7 @@ const mc = require('./controllers/messages_controller')
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(__dirname + '../public/build'))
 
 app.post('/api/messages',mc.create);
 app.get('/api/messages', mc.read);

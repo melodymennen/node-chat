@@ -16,7 +16,7 @@ module.exports = {
     },
     update(req,res){
         const messageId = req.params.id;
-        const messageIndex = messages.findIndex(message => messageId === +messageIndex);
+        const messageIndex = messages.findIndex(message => message.id === +messageId);
         messages[messageIndex] = {
             text: req.body.text
         }
@@ -24,7 +24,7 @@ module.exports = {
     },
     delete(req,res){
         const messageId = req.params.id;
-        const messageIndex = messages.findIndex(message => messageId === +messageIndex);
+        const messageIndex = messages.findIndex(message => message.id === +messageId);
         messages.splice(messageIndex,1)
         res.json(messages)
     }
